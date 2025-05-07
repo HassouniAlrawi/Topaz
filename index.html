@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توباز صالة VIP - مطار بغداد الدولي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a3d62;
+            --secondary: #f6b93b;
+            --accent: #e55039;
+            --light: #f8f9fa;
+            --dark: #222f3e;
+            --text: #333;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f6fa;
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, rgba(10, 61, 98, 0.9), rgba(58, 83, 155, 0.8)), 
+                        url('lam.architect_14040218_110818339.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            z-index: 2;
+            animation: fadeInUp 1.5s ease;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slogan {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(246, 185, 59, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(246, 185, 59, 0.4);
+            background-color: #ffc048;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-right: 15px;
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 61, 98, 0.95);
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav.scrolled {
+            padding: 15px 0;
+            background: rgba(10, 61, 98, 0.98);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .nav-logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+            left: 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background: white;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Main Content */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 800;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        /* Welcome Section */
+        .welcome {
+            background-color: white;
+            position: relative;
+        }
+        
+        .welcome-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .welcome-text {
+            flex: 1;
+        }
+        
+        .welcome-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .welcome-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .welcome-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .welcome-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .welcome-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .welcome-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(10, 61, 98, 0.2), rgba(246, 185, 59, 0.1));
+            z-index: 1;
+        }
+        
+  /* Services Section - Redesigned */
+.services {
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.services:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: rgba(10, 61, 98, 0.03);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.services:after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(246, 185, 59, 0.03);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--dark));
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.service-card:hover:before {
+    opacity: 1;
+}
+
+.service-icon {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(10, 61, 98, 0.05), rgba(246, 185, 59, 0.05));
+    font-size: 4rem;
+    color: var(--primary);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-icon:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    transform: rotate(45deg);
+    transition: var(--transition);
+}
+
+.service-card:hover .service-icon:after {
+    transform: rotate(45deg) translate(20px, 20px);
+}
+
+.service-card:hover .service-icon {
+    color: white;
+    background: transparent;
+}
+
+.service-content {
+    padding: 30px;
+    position: relative;
+}
+
+.service-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+    transition: var(--transition);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.service-content h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--secondary);
+    transition: var(--transition);
+}
+
+.service-card:hover .service-content h3:after {
+    background: white;
+}
+
+.service-card:hover .service-content h3 {
+    color: white;
+}
+
+.service-content p {
+    color: #666;
+    transition: var(--transition);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.service-card:hover .service-content p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.service-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--secondary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.service-card:hover .service-link {
+    color: white;
+}
+
+.service-link i {
+    margin-right: 5px;
+    transition: var(--transition);
+}
+
+.service-link:hover i {
+    transform: translateX(5px);
+}
+
+/* New Service Card Hover Effect */
+.service-hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.service-card:hover .service-hover-effect {
+    opacity: 1;
+}
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .features:after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .section-title.white h2 {
+            color: white;
+        }
+        
+        .section-title.white h2:after {
+            background: var(--secondary);
+        }
+        
+        .section-title.white p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+        
+        .feature-text h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .feature-text p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay h4 {
+            color: white;
+            font-size: 1.2rem;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay h4 {
+            transform: translateY(0);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f9f9f9;
+        }
+        
+        .testimonials-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .client-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--secondary);
+        }
+        
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-rating {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+        
+        .client-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .client-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #666;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f1f1;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: white;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.1);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(10, 61, 98, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(-10px);
+        }
+        
+        .footer-newsletter input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .footer-newsletter input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-newsletter button {
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .footer-newsletter button:hover {
+            background: #ffc048;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .logo {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .welcome-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .slogan {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                min-height: 600px;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .slogan {
+                font-size: 1.2rem;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-outline {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">توباز<span>VIP</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">عنّا</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#gallery">المعرض</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Header -->
+    <header id="home">
+        <div class="container header-content">
+            <h1 class="logo">توباز صالة VIP</h1>
+            <p class="slogan">تجربة سفر استثنائية تبدأ من هنا</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-outline">احجز الآن</a>
+                <a href="#services" class="btn">اكتشف الخدمات</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Welcome Section -->
+    <section class="welcome" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>مرحبًا بكم في توباز لاونج</h2>
+                <p>مكانك المثالي للاسترخاء قبل رحلتك، حيث الراحة والضيافة الفاخرة تلتقيان لتمنحك تجربة سفر لا تُنسى.</p>
+            </div>
+            
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <h3>جوهرة الراحة في سماء بغداد</h3>
+                    <p>تأسست صالة توباز VIP في مطار بغداد الدولي لتقديم تجربة سفر استثنائية للضيوف الذين يبحثون عن الراحة والرفاهية أثناء انتظار رحلاتهم. نحن نفتخر بتقديم خدمات عالية الجودة في أجواء راقية وأنيقة.</p>
+                    <p>صالة توباز هي ملاذك الآمن من صخب المطار، حيث يمكنك الاسترخاء في أجواء هادئة، أو إنجاز أعمالك في مساحات مخصصة، أو الاستمتاع بوجبات فاخرة قبل رحلتك.</p>
+                    <a href="#services" class="btn" style="margin-top: 20px;">استكشف خدماتنا</a>
+                </div>
+                <div class="welcome-image">
+                    <img src="lam.architect_14040218_110818339.jpg" alt="صالة توباز الفاخرة">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- Services Section - Redesigned -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>خدماتنا الفاخرة</h2>
+            <p>اكتشف عالمًا من الرفاهية والراحة مع خدماتنا المصممة خصيصًا لراحتك</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-fast-forward"></i>
+                    <div class="service-hover-effect"></div>
+                </div>
+                <div class="service-content">
+                    <h3>مرور سريع</h3>
+                    <p>إجراءات سفر سريعة مع مساعدة شخصية من طاقمنا المدرب لتوفير الوقت والجهد أثناء السفر</p>
+                    <a href="#" class="service-link">
+                        <i class="fas fa-arrow-left"></i> اكتشف المزيد
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-utensils"></i>
+                    <div class="service-hover-effect"></div>
+                </div>
+                <div class="service-content">
+                    <h3>بوفيه فاخر</h3>
+                    <p>تشكيلة مميزة من الأطباق العالمية والمحلية المعدة بأعلى معايير الجودة تحت إشراف أفضل الطهاة</p>
+                    <a href="#" class="service-link">
+                        <i class="fas fa-arrow-left"></i> اكتشف المزيد
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-couch"></i>
+                    <div class="service-hover-effect"></div>
+                </div>
+                <div class="service-content">
+                    <h3>مساحات هادئة</h3>
+                    <p>أجواء مريحة ومخصصة للراحة أو العمل بخصوصية تامة مع اتصال إنترنت فائق السرعة وخدمة متكاملة</p>
+                    <a href="#" class="service-link">
+                        <i class="fas fa-arrow-left"></i> اكتشف المزيد
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tv"></i>
+                    <div class="service-hover-effect"></div>
+                </div>
+                <div class="service-content">
+                    <h3>شاشات الرحلات</h3>
+                    <p>متابعة أحدث تحديثات الرحلات بشكل مباشر مع تنبيهات فورية لأي تغييرات وخدمة إرشادية متكاملة</p>
+                    <a href="#" class="service-link">
+                        <i class="fas fa-arrow-left"></i> اكتشف المزيد
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-car-side"></i>
+                    <div class="service-hover-effect"></div>
+                </div>
+                <div class="service-content">
+                    <h3>خدمة نقل VIP</h3>
+                    <p>نقل مباشر إلى الطائرة بخدمة فاخرة على مدار الساعة مع معاملة خاصة ومرافق شخصي إذا لزم الأمر</p>
+                    <a href="#" class="service-link">
+                        <i class="fas fa-arrow-left"></i> اكتشف المزيد
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-concierge-bell"></i>
+                    <div class="service-hover-effect"></div>
+                </div>
+                <div class="service-content">
+                    <h3>طاقم مدرب</h3>
+                    <p>مساعدتك في تسجيل الأمتعة والاستقبال الخاص مع معاملة شخصية تليق بكم وخدمة متابعة متكاملة</p>
+                    <a href="#" class="service-link">
+                        <i class="fas fa-arrow-left"></i> اكتشف المزيد
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title white">
+                <h2>لماذا تختار توباز لاونج؟</h2>
+                <p>نحن نقدم تجربة فريدة لا يمكنك العثور عليها في أي مكان آخر في مطار بغداد الدولي</p>
+            </div>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>راحة لا مثيل لها</h4>
+                        <p>أجواء هادئة بعيدًا عن صخب المطار مع مقاعد مريحة مصممة لأقصى درجات الاسترخاء</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>وجبات شهية</h4>
+                        <p>تشكيلة من الأطباق العالمية والمحلية المعدة من قبل أشهر الطهاة لتلبي جميع الأذواق</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>إجراءات سفر سريعة</h4>
+                        <p>خدمة تسجيل وصول سريعة مع مساعدة شخصية لتوفير وقتك وجهدك قبل الرحلة</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>إنترنت فائق السرعة</h4>
+                        <p>اتصال إنترنت سريع ومجاني في جميع أنحاء الصالة لإنجاز أعمالك أو التواصل مع أحبائك</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>خصوصية وأمان</h4>
+                                                <p>مساحات خاصة مصممة لتوفير الخصوصية والأمان التام لضيوفنا الكرام</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>خدمة عملاء على مدار الساعة</h4>
+                        <p>طاقم مدرب جاهز لمساعدتك في أي وقت لتلبية جميع احتياجاتك قبل رحلتك</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>معرض الصور</h2>
+                <p>استكشف أجواء الصالة الفاخرة ومرافقنا الراقية من خلال هذه الصور</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="lam.architect_14040218_110828484.jpg" alt="صالة الاستراحة">
+                    <div class="gallery-overlay">
+                        <h4>صالة الاستراحة الفاخرة</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="منطقة الطعام">
+                    <div class="gallery-overlay">
+                        <h4>منطقة الطعام الراقية</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="منطقة العمل">
+                    <div class="gallery-overlay">
+                        <h4>مساحة العمل المخصصة</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556388159-95d1a6f5e2d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="المقاعد المريحة">
+                    <div class="gallery-overlay">
+                        <h4>المقاعد المريحة الفاخرة</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556388158-6da9cec2a7a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="منطقة الاسترخاء">
+                    <div class="gallery-overlay">
+                        <h4>منطقة الاسترخاء الخاصة</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556388158-5d4c8f1e0b7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="المشروبات المميزة">
+                    <div class="gallery-overlay">
+                        <h4>المشروبات المميزة والعصائر الطازجة</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     <!--
+-->
+    
+</body>
+</html>
